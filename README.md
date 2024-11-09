@@ -118,74 +118,131 @@ Hasil Praktikum:
 # Tugas Praktikum
 
 1.  Selesaikan Praktikum tersebut, lalu dokumentasikan dan push repository Anda berupa screenshot hasil pekerjaan beserta penjelasannya di file README.md!
-2.  Jelaskan maksud dari langkah 2 pada praktikum tersebut!     
-Jawab: 
-    ```
-    flutter pub add auto_size_text 
-    ```
+2.  Jelaskan maksud dari langkah 2 pada praktikum tersebut!  
+    Jawab:
+    `    flutter pub add auto_size_text 
+   `
     Langkah flutter pub add auto_size_text pada praktikum tersebut adalah perintah untuk menambahkan package auto_size_text ke dalam proyek Flutter. Package auto_size_text adalah library yang memungkinkan teks pada aplikasi Flutter untuk secara otomatis menyesuaikan ukuran agar sesuai dengan batas ruang yang disediakan, tanpa memotong teks.
 
-3.  Jelaskan maksud dari langkah 5 pada praktikum tersebut!     
-Jawab: 
+3.  Jelaskan maksud dari langkah 5 pada praktikum tersebut!  
+    Jawab:
     ```
     final String text;
 
-    const RedTextWidget({Key? key, required this.text}) : super(key: key);  
-    ```
-    Langkah 5 pada praktikum ini mendefinisikan konstruktor RedTextWidget yang menerima parameter text berupa teks yang wajib diisi saat membuat widget ini. Variabel text diset sebagai final, yang artinya nilainya hanya bisa ditetapkan sekali dan tidak bisa diubah setelahnya. Konstruktor ini juga menggunakan kata kunci const, yang membuat widget ini lebih efisien karena Flutter bisa menggunakan widget yang sama berulang kali tanpa membuat ulang dari awal. Parameter key adalah opsional dan digunakan untuk membantu Flutter mengenali widget ini dalam struktur aplikasi.
+        const RedTextWidget({Key? key, required this.text}) : super(key: key);
+        ```
+        Langkah 5 pada praktikum ini mendefinisikan konstruktor RedTextWidget yang menerima parameter text berupa teks yang wajib diisi saat membuat widget ini. Variabel text diset sebagai final, yang artinya nilainya hanya bisa ditetapkan sekali dan tidak bisa diubah setelahnya. Konstruktor ini juga menggunakan kata kunci const, yang membuat widget ini lebih efisien karena Flutter bisa menggunakan widget yang sama berulang kali tanpa membuat ulang dari awal. Parameter key adalah opsional dan digunakan untuk membantu Flutter mengenali widget ini dalam struktur aplikasi.
 
-4.  Pada langkah 6 terdapat dua widget yang ditambahkan, jelaskan fungsi dan perbedaannya!      
-Jawab:
+4.  Pada langkah 6 terdapat dua widget yang ditambahkan, jelaskan fungsi dan perbedaannya!  
+    Jawab:
     ```
     Container(
     color: Colors.yellowAccent,
     width: 50,
     child: const RedTextWidget(
-                text: 'You have pushed the button this many times:',
-            ),
+    text: 'You have pushed the button this many times:',
+    ),
     ),
 
-    Container(
-        color: Colors.greenAccent,
-        width: 100,
-        child: const Text(
-            'You have pushed the button this many times:',
-            ),
-    ),
-    ```
-    Pada langkah 6, ada dua Container yang digunakan untuk membungkus widget teks, namun keduanya memiliki fungsi dan perbedaan dalam cara teks ditampilkan.
+        Container(
+            color: Colors.greenAccent,
+            width: 100,
+            child: const Text(
+                'You have pushed the button this many times:',
+                ),
+        ),
+        ```
+        Pada langkah 6, ada dua Container yang digunakan untuk membungkus widget teks, namun keduanya memiliki fungsi dan perbedaan dalam cara teks ditampilkan.
 
-    1. Container pertama memiliki warna latar belakang kuning (Colors.yellowAccent) dan lebar 50. Di dalam Container ini, terdapat widget kustom RedTextWidget, yang berfungsi untuk menampilkan teks dengan gaya tertentu. Teks yang ditampilkan adalah "You have pushed the button this many times:", dan widget RedTextWidget ini kemungkinan memiliki desain khusus seperti warna teks yang berbeda atau pengaturan tampilan lainnya.
+        1. Container pertama memiliki warna latar belakang kuning (Colors.yellowAccent) dan lebar 50. Di dalam Container ini, terdapat widget kustom RedTextWidget, yang berfungsi untuk menampilkan teks dengan gaya tertentu. Teks yang ditampilkan adalah "You have pushed the button this many times:", dan widget RedTextWidget ini kemungkinan memiliki desain khusus seperti warna teks yang berbeda atau pengaturan tampilan lainnya.
 
-    2. Container kedua memiliki warna latar belakang hijau (Colors.greenAccent) dan lebar 100. Di dalam Container ini, terdapat widget Text standar dari Flutter yang juga menampilkan teks yang sama, yaitu "You have pushed the button this many times:". Widget Text ini tidak memiliki gaya kustom, jadi teks yang ditampilkan hanya menggunakan pengaturan default tanpa modifikasi khusus.
+        2. Container kedua memiliki warna latar belakang hijau (Colors.greenAccent) dan lebar 100. Di dalam Container ini, terdapat widget Text standar dari Flutter yang juga menampilkan teks yang sama, yaitu "You have pushed the button this many times:". Widget Text ini tidak memiliki gaya kustom, jadi teks yang ditampilkan hanya menggunakan pengaturan default tanpa modifikasi khusus.
 
-    Perbedaan utama antara kedua Container tersebut adalah pada jenis widget yang digunakan untuk menampilkan teks: yang pertama menggunakan widget kustom RedTextWidget, sedangkan yang kedua menggunakan widget Text standar dari Flutter. Keduanya dibungkus dalam Container dengan warna latar belakang yang berbeda, sehingga menciptakan variasi tampilan yang berbeda meskipun teks yang ditampilkan sama.
-5.  Jelaskan maksud dari tiap parameter yang ada di dalam plugin auto_size_text berdasarkan tautan pada dokumentasi berikut https://pub.dev/documentation/auto_size_text/latest/ !       
-Jawab:     
-| Parameter          | Deskripsi                                                                                             |      
-|--------------------|-------------------------------------------------------------------------------------------------------|
-| **key**            | Mengontrol cara widget menggantikan widget lain dalam pohon widget.                                    |
-| **textKey**        | Menetapkan kunci untuk widget `Text` yang dihasilkan.                                                 |
-| **style**          | Gaya teks yang digunakan (font, warna, dll), jika tidak null.                                         |
-| **minFontSize**    | Ukuran font minimum yang digunakan saat teks menyesuaikan dengan ruang.                              |
-| **maxFontSize**    | Ukuran font maksimum yang digunakan saat teks menyesuaikan dengan ruang.                              |
-| **stepGranularity**| Langkah penyesuaian ukuran font saat menyesuaikan dengan batasan ruang.                               |
-| **presetFontSizes**| Daftar ukuran font yang sudah ditentukan, harus diurutkan menurun.                                    |
-| **group**          | Menyinkronkan ukuran teks antara beberapa `AutoSizeText` dalam satu grup.                            |
-| **textAlign**      | Penentuan perataan teks secara horizontal (misalnya kiri, tengah, kanan).                             |
-| **textDirection**  | Arah teks (LTR atau RTL) yang memengaruhi perataan teks seperti `TextAlign.start` dan `TextAlign.end`. |
-| **locale**         | Menentukan font berdasarkan lokasi atau karakter Unicode tertentu.                                    |
-| **softWrap**       | Menentukan apakah teks dapat terputus pada batas baris yang lembut.                                   |
-| **wrapWords**      | Menentukan apakah kata yang tidak muat dalam satu baris harus dibungkus. Default: `true`.             |
-| **overflow**       | Menangani teks yang meluber melebihi ruang yang tersedia (misalnya dengan memotong atau ellipsis).      |
-| **overflowReplacement**| Widget pengganti yang ditampilkan jika teks meluber dan tidak muat dalam batas.                  |
-| **textScaleFactor**| Faktor skala font berdasarkan pengaturan sistem, memengaruhi ukuran teks.                             |
-| **maxLines**       | Membatasi jumlah baris teks yang dapat ditampilkan.                                                  |
-| **semanticsLabel** | Label alternatif untuk pembaca layar.                                                                |
+        Perbedaan utama antara kedua Container tersebut adalah pada jenis widget yang digunakan untuk menampilkan teks: yang pertama menggunakan widget kustom RedTextWidget, sedangkan yang kedua menggunakan widget Text standar dari Flutter. Keduanya dibungkus dalam Container dengan warna latar belakang yang berbeda, sehingga menciptakan variasi tampilan yang berbeda meskipun teks yang ditampilkan sama.
+
+5.  Jelaskan maksud dari tiap parameter yang ada di dalam plugin auto_size_text berdasarkan tautan pada dokumentasi berikut https://pub.dev/documentation/auto_size_text/latest/ !  
+    Jawab:  
+     <table>
+    <thead>
+    <tr>
+    <th>Parameter</th>
+    <th>Deskripsi</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><code>key</code></td>
+    <td>Mengontrol cara widget menggantikan widget lain dalam pohon widget.</td>
+    </tr>
+    <tr>
+    <td><code>textKey</code></td>
+    <td>Menetapkan kunci untuk widget <code>Text</code> yang dihasilkan.</td>
+    </tr>
+    <tr>
+    <td><code>style</code></td>
+    <td>Gaya teks yang digunakan (font, warna, dll), jika tidak null.</td>
+    </tr>
+    <tr>
+    <td><code>minFontSize</code></td>
+    <td>Ukuran font minimum yang digunakan saat teks menyesuaikan dengan ruang.</td>
+    </tr>
+    <tr>
+    <td><code>maxFontSize</code></td>
+    <td>Ukuran font maksimum yang digunakan saat teks menyesuaikan dengan ruang.</td>
+    </tr>
+    <tr>
+    <td><code>stepGranularity</code></td>
+    <td>Langkah penyesuaian ukuran font saat menyesuaikan dengan batasan ruang.</td>
+    </tr>
+    <tr>
+    <td><code>presetFontSizes</code></td>
+    <td>Daftar ukuran font yang sudah ditentukan, harus diurutkan menurun.</td>
+    </tr>
+    <tr>
+    <td><code>group</code></td>
+    <td>Menyinkronkan ukuran teks antara beberapa <code>AutoSizeText</code> dalam satu grup.</td>
+    </tr>
+    <tr>
+    <td><code>textAlign</code></td>
+    <td>Penentuan perataan teks secara horizontal (misalnya kiri, tengah, kanan).</td>
+    </tr>
+    <tr>
+    <td><code>textDirection</code></td>
+    <td>Arah teks (LTR atau RTL) yang memengaruhi perataan teks seperti <code>TextAlign.start</code> dan <code>TextAlign.end</code>.</td>
+    </tr>
+    <tr>
+    <td><code>locale</code></td>
+    <td>Menentukan font berdasarkan lokasi atau karakter Unicode tertentu.</td>
+    </tr>
+    <tr>
+    <td><code>softWrap</code></td>
+    <td>Menentukan apakah teks dapat terputus pada batas baris yang lembut.</td>
+    </tr>
+    <tr>
+    <td><code>wrapWords</code></td>
+    <td>Menentukan apakah kata yang tidak muat dalam satu baris harus dibungkus. Default: <code>true</code>.</td>
+    </tr>
+    <tr>
+    <td><code>overflow</code></td>
+    <td>Menangani teks yang meluber melebihi ruang yang tersedia (misalnya dengan memotong atau ellipsis).</td>
+    </tr>
+    <tr>
+    <td><code>overflowReplacement</code></td>
+    <td>Widget pengganti yang ditampilkan jika teks meluber dan tidak muat dalam batas.</td>
+    </tr>
+    <tr>
+    <td><code>textScaleFactor</code></td>
+    <td>Faktor skala font berdasarkan pengaturan sistem, memengaruhi ukuran teks.</td>
+    </tr>
+    <tr>
+    <td><code>maxLines</code></td>
+    <td>Membatasi jumlah baris teks yang dapat ditampilkan.</td>
+    </tr>
+    <tr>
+    <td><code>semanticsLabel</code></td>
+    <td>Label alternatif untuk pembaca layar.</td>
+    </tr>
+    </tbody>
+    </table>
 
 6.  Kumpulkan laporan praktikum Anda berupa link repository GitHub kepada dosen!
-| Left |  Center  | Right |     
-|:-----|:--------:|------:|     
-| L0   | **bold** | $1600 |     
-| L1   |  `code`  |   $12 |     
-| L2   | _italic_ |    $1 |     
